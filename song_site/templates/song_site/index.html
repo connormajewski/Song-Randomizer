@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, inital-scale=1">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'song_site/styles.css' %}">
+</head>
+<body>
+
+<div class="main_window_half" id="left">
+
+    {% if layout_changed is False %}
+
+    <div class="main_window_half_container">
+
+<!--        <div class="plus-sign" id="plusSign"></div>-->
+
+        <div id="plusSignText">+</div>
+
+    </div>
+
+    <div class="main_window_half_container_menu" id="plus">
+
+            <form id="searchForm" method="post">
+
+                {% csrf_token %}
+
+                <div class="search">
+
+                    <input type="image" class="searchPhoto" src="{% static 'images/search.png' %}">
+
+                    <div class="search_button">
+
+                         <input type="text" name="searchQuery" id="textInput" placeholder="Search">
+
+                    </div>
+
+                </div>
+
+            </form>
+
+    </div>
+
+    {% else %}
+
+        {% if song_added is False %}
+
+            {% if song_found is True %}
+
+                <div class="main_window_half_container" id="song_list">
+
+                    <form id="addForm" method="post">
+
+                        {% csrf_token %}
+
+                        <div id="songs">
+
+                            {% for video in video_list %}
+
+                            <input type="hidden" name="songData"/><a href="https://www.youtube.com/watch?v={{ video.2 }}" target="_blank" id="song">{{ video.0 }} - {{ video.1 }}</a>
+
+                            {% endfor %}
+
+                            <div id="add"><a>Add</a></div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            {% else %}
+
+                <div class="main_window_half_container" id="notFound">
+
+                    <div id="added">We couldn't find your song. Maybe try a different one.</div>
+
+                </div>
+
+            {% endif %}
+
+        {% else %}
+
+            <div class="main_window_half_container" id="addedSong">
+
+                {% if song_success is True %}
+
+                <div id="added">You've added a song to the playlist. That's pretty cool.</div>
+
+                {% else %}
+
+                <div id="notAdded">It looks like someone beat you to the punch. Try a different song.</div>
+
+                {% endif %}
+
+            </div>
+
+        {% endif %}
+
+    {% endif %}
+
+</div>
+
+<div class="main_window_half" id="right">
+
+    <div class="main_window_half_container">
+
+        <div class="triangle" id="triangle"></div>
+
+    </div>
+
+     <div class="main_window_half_container_menu">
+
+         <div id="randomSong"><a href="https://www.youtube.com/watch?v={{ random_song.songId }}" target="_blank">{{ random_song.name }} - {{ random_song.artist }}</a></div>
+
+    </div>
+
+<script src="{% static 'song_site/song_site.js' %}"></script>
+
+</body>
+</html>

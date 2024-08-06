@@ -1,0 +1,229 @@
+html, body {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    background-color: #347aeb;
+    overflow: hidden;
+    font-family: "Arial";
+}
+
+body {
+    display: flex;
+}
+
+
+.main_window_half {
+    height: 100vh;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_window_half_container, .main_window_half, .main_window_half_container_menu, #songs {
+
+    /*border: 3px solid black;*/
+
+}
+
+#songs {
+
+    position: absolute;
+    width: 100%
+    height: 80%;
+    margin-top: 35%;
+    margin-left: 7%;
+}
+
+#add {
+
+    width: 10%;
+    height: 30px;
+    /*border-radius: 25px;
+    background-color: white;*/
+    /*color: #347aeb;*/
+    color: white;
+
+
+}
+
+#add p{
+
+    font-size: 12px;
+
+}
+
+.main_window_half_container, .main_window_half_container_menu, #add {
+
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.main_window_half_container {
+    left: 0;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+    margin-top: 25%;
+
+}
+
+#song_list, #added, #notAdded {
+
+    color: white;
+    font-size: 30px;
+
+}
+
+#song_list a, #song_list p {
+
+    text-decoration: none;
+    color: white;
+
+
+}
+
+.main_window_half_container_menu {
+
+    left: 0;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+    margin-top: 25%;
+
+    content-align: center;
+}
+
+#plusSignText{
+
+    margin-left: 60px;
+    margin-top: -55px;
+    color: white;
+    font-size: 500px;
+
+}
+
+.plus-sign {
+    width: 25px; /* Adjust width of the plus sign */
+    height: 25px; /* Adjust height of the plus sign */
+    marginLeft: 50%;
+    marginTop: -500px;
+}
+.plus-sign::before,
+.plus-sign::after {
+    content: '';
+    position: absolute;
+    background-color: white; /* Color of the plus sign */
+}
+.plus-sign::before {
+    width: 75%;
+    height: 30px; /* Thickness of the horizontal line */
+    top: 50%;
+    left: 12.5%;
+    transform: translateY(-50%);
+}
+.plus-sign::after {
+    height: 75%;
+    width: 30px; /* Thickness of the vertical line */
+    left: 50%;
+    top: 12.5%;
+    transform: translateX(-50%);
+}
+
+.triangle {
+    position: absolute;
+    margin-left: 23%;
+    margin-top: 23%;
+	background-color: white;
+	text-align: left;
+}
+.triangle:before,
+.triangle:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+	width:  10em;
+	height: 10em;
+	border-top-right-radius: 30%;
+}
+
+.triangle {
+	transform: rotate(-90deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.search{
+
+
+    margin-left: 9%;
+    margin-top: 55%;
+    display: inline-grid;
+
+}
+
+#added, #randomSong, #notAdded{
+
+    position: absolute;
+    margin-top: 45%;
+    margin-left: 9%;
+
+}
+
+#randomSong {
+
+    margin-top: 60%;
+
+}
+
+#randomSong a{
+
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+
+}
+
+.search_button {
+
+    position: absolute;
+    margin-left: 11%;
+    height: 10%;
+    width: 60%;
+    border-radius: 25px;
+    background-color: white;
+    text-align: center;
+ }
+
+
+input[type=text] {
+    font-size: 20px;
+    position: relative;
+    height: 90%;
+    width: 80%;
+    color: gray;
+    border: none;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+img .searchPhoto{
+
+    height: 50px;
+    width: 50px;
+
+}
